@@ -18,6 +18,7 @@ export default defineConfig({
       '#hoc': resolve(dirname(fileURLToPath(import.meta.url)), 'src/hoc'),
       '#windows': resolve(dirname(fileURLToPath(import.meta.url)), 'src/windows'),
       '#data': resolve(dirname(fileURLToPath(import.meta.url)), 'src/data'),
+      '#services': resolve(dirname(fileURLToPath(import.meta.url)), 'src/services'),
     }
   }
 });
