@@ -67,7 +67,6 @@ const Docs = () => {
             closeWindow(app.id)
         } else {
            openWindow(app.id)
-           console.log(windows) 
         }
     }
     
