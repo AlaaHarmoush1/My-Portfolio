@@ -1,0 +1,39 @@
+import { WindowsControlls } from '#components'
+import WindowWrapper from '#hoc/windowWrapper'
+import { Download } from 'lucide-react'
+import React from 'react'
+import 'react-pdf/dist/Page/AnnotationLayer.css'
+import 'react-pdf/dist/Page/TextLayer.css'
+
+import { pdfjs, Document, Page } from 'react-pdf'
+
+pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+    'pdfjs-dist/build/pdf.worker.min.mjs',
+    import.meta.url,
+).toString();
+
+const Resume = () => {
+  return (
+    <>
+      <div id='window-header'>
+        <WindowsControlls target='resume'/>
+        <h2>Resume.pdf</h2>
+
+        <a href="files/Alaa_Harmoush_Resume.pdf" download className='cursor-pointer' title='Download'>
+            <Download className='icon'/>
+        </a>
+      </div>
+
+      <Document file="files/Alaa_Harmoush_Resume.pdf">
+        <Page pageNumber={1} renderTextLayer renderAnnotationLayer />
+      </Document>
+
+
+    </>
+  )
+}
+
+
+const ResumeWindow = WindowWrapper(Resume, "resume")
+
+export default ResumeWindow
